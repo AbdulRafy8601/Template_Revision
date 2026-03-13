@@ -1,6 +1,7 @@
 #include "Employee.h"
 
-class FullTimeEmployee : public Employee
+template <typename T>
+class FullTimeEmployee : public Employee<T>
 {
     int salary;
    public:
@@ -8,8 +9,10 @@ class FullTimeEmployee : public Employee
        void calculateSalary();
 };
 
-void FullTimeEmployee :: calculateSalary()
+template <typename T>
+void FullTimeEmployee<T> :: calculateSalary()
 {
     cout << "Full Time Employee Salary:"<< salary << " pkr" << endl;
 }    
-FullTimeEmployee :: FullTimeEmployee(int salary): salary(salary){}
+template <typename T>
+FullTimeEmployee <T> :: FullTimeEmployee(int salary): salary(salary){}

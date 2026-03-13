@@ -1,6 +1,6 @@
 #include "Employee.h"
-
-class PartTimeEmployee : public Employee
+template <typename T>
+class PartTimeEmployee : public Employee<T>
 {
     int hourlyRate;
     int hoursWorked;
@@ -8,9 +8,11 @@ class PartTimeEmployee : public Employee
        void calculateSalary();
        PartTimeEmployee(int hourlyRate=0, int hoursWorked=0);
 };
-
-void PartTimeEmployee :: calculateSalary()
+template <typename T>
+void PartTimeEmployee<T> :: calculateSalary()
 {
    cout << "Part Time Employee Salary:"<< hourlyRate * hoursWorked << " pkr" << endl;
 }
-PartTimeEmployee :: PartTimeEmployee(int hourlyRate, int hoursWorked): hourlyRate(hourlyRate), hoursWorked(hoursWorked){}
+
+template <typename T>
+PartTimeEmployee<T> :: PartTimeEmployee(int hourlyRate, int hoursWorked): hourlyRate(hourlyRate), hoursWorked(hoursWorked){}
